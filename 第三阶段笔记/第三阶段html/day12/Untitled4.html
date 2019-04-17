@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+		var ret;
+		function	show(){
+			ret=setInterval(function(){
+				var now=new Date();
+				console.log(now);
+			},1000);
+		}
+		function clearu(){
+			clearInterval(ret);
+
+		}
+
+
+		</script>
+		<button onclick="show()">开始</button>
+		<button onclick="clearu()">暂停</button>
+ </body>
+</html>

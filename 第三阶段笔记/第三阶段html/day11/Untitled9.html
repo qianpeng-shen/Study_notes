@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	function tihuan(){
+		var a="Microsoft is a big company,microsoft's color is red and has MICROSOFT logo like microsoft";
+		reg=/microsoft/gi;
+		r=a.match(reg);
+		a=a.replace(reg,"微软");
+		console.log("共输出了"+r.length+"次");
+		console.log(a);
+		
+	}
+	</script>
+	<button onclick="tihuan()">微软</button>
+ </body>
+</html>

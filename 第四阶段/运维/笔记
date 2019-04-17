@@ -1,0 +1,469 @@
+
+day01
+
+什么是运维
+  服务器的运行维护
+名词
+  IDC(互联网数据中心)
+    服务器租用，服务器托管，机柜租用
+  虚拟化
+  负载均衡
+  CDN
+    分发网络
+  监控软件
+    常用监控软件：nagios,zabbix
+常用Linux操作系统
+  RedHat(红帽)
+  CentOS
+  Ubuntu
+常用的Linun命令
+  ifconfig 
+  　　查看IP地址和MAC地址 
+  　　#windows中是ipconfig
+  ping 
+  　　测试网络连通性  
+  　　ping IP地址/域名 -c n(指定连接次数)
+  nslookup
+    解析域名对应的IP地址
+    nslookup www.baidu.com
+  重启网卡
+    sudo /ect/init.d/networking restart
+  top
+    作用：
+      Linux下的任务管理器，动态显示当前进程CPU及内存使用率，　q退出
+  ps -aux
+    显示系统进程的命令(PID号)
+    ps -aus | grop "mysql" :筛选mysql PID号
+  kill
+    作用：杀死某一个进程
+    sudo kill  进程PID号
+    sudo kill  1231
+  ssh
+    作用　：远程连接到服务器
+    格式：ssh 用户名@IP地址
+  scp
+    作用：远程复制文件/目录
+    格式：scp 文件名 用户名@IP地址：绝对路径(/home/tarena/)
+  wc -l
+    作用：统计文件的行数
+    实例: wc -l /etc/passwd
+  sort(排序)
+    对文件中的内容进行排序
+    sort 文件名
+  uniq -c
+    去除重复行，并统计每行出现的次数(相邻行)
+    用法：sort 文件名　| uniq -c
+
+运维工具
+  xshell(软件，安装在windows)
+    安全终端模拟软件 
+  xshell使用方法
+    文件－新建－输入服务器IP地址－输入用户名－输入密码－确认连接
+  Windows<->Linux
+    安装lszrz
+      sudo apt-get install lrzsz
+    Windows ->Linux
+      传文件
+      xshll终端执行: $ rz
+    Linux ->Windows
+      传文件
+      xshll终端执行: $ sz 文件名
+
+
+
+
+day02
+
+shell编程
+  解释执行器
+    sh
+    bash
+    ##/etc/passwd 查看用户的默认bash,sh解释执行器没有高亮显示，也没有自动补全
+  shell编程
+    所有的shell文件都是以.sh结尾
+    执行方式：
+     方式一:
+      chmod +x 文件名.sh
+      ./文件名.sh
+     方式二:
+      sh 文件名.sh
+    示例：
+      写一个shell文件，t1.sh,要求在用户主目录下创建aid18/mydir1,执行t1.sh验证结果
+  shell基础
+    变量赋值
+      变量名=值 ##注意：等号的左右两侧不能有空格
+    赋值方式
+      直接赋值
+        x=10   y=20
+      获取命令的执行结果给变量赋值
+        time=$(date)
+        time=`date`
+      接收从键盘输入的字符给变量赋值
+        read -p "提示信息" -t 5(秒数) 变量名
+    输出语句
+      echo $变量名
+    ''和""的区别
+      ''无法获取变量的值
+      ""可以获取变量的值
+        read -p "请输入名字" -t 5 name
+        echo '变量$name的值是:'$name
+    撤销变量
+      unset变量名
+  运算符
+    算术运算符
+      + - * / %
+      ++:自加1运算，类似于python中 i++ 等同于 i+=1
+      运算命令:
+        let运算表达式
+          i=1
+          let i++
+          echo $i
+
+        expr 运算表达式
+          i=1
+          sum=`expr $i + 5`#加号两侧要加空格
+          echo $sum
+    比较运算符
+      文件状态
+        -e :文件/目录是否存在
+        -d :判断是否为目录
+        -f :判断是否为文件
+      字符比较
+        =,!=
+        空：-z
+        非空:!-z或者-n
+      数值比较
+        等于:-eq
+        大于：-gt
+        大于等于：-ge
+        小于:-lt
+        小于等于:-le
+        不等于：-ne
+      逻辑比较
+        逻辑与:&& python中的and
+        逻辑或:|| python中的or
+
+if条件判断
+  语法格式
+    if [ 条件判断 ]; then 条件判断两侧要加空格
+        执行语句
+    fi
+  多分支
+    if [ 条件判断 ];then
+        执行语句
+    elif [ 条件判断 ];then
+        执行语句
+    ...
+    else
+        执行语句
+    fi
+  输入两个数字，比较大下
+for 循环
+  语法格式
+    for 变量名 in 值列表
+    do
+        执行语句
+    done
+  造数方法 
+    seq 起始值　步长　终止值
+    seq 5 ---> 1 2 3 4 5
+    seq 1 2 10 --> 1 3 5 7 9
+    seq 2 2 10 --> 2 4 6 8 10
+    for i in $(seq 5)
+    do 
+        echo $i
+    done
+C-for  循环
+  语法格式
+    for ((赋初值;条件判断;步长))
+    do
+        执行语句
+    done
+  输出1-5之间的整数
+    for ((i=1;i<=5;i++))
+    do
+        echo $i
+    done
+  输出20-47之间的偶数
+    for ((i=20;i<=47;i++))
+    do
+        if [ `espr $i%2` -eq 0 ];then
+            echo $i
+        fi
+    done
+
+
+
+day03
+周期性计划任务
+  进入周期性计划任务设置
+  $crontab -e
+  按4
+  设置周期性计划任务
+  *****python3 /home/tarean/python/0.1py
+  *****sh
+  分时日月周
+  分：0-59
+  时：0-23
+  日：1-31
+  月：1-12
+  周：0-6
+  *:代表所有可能值
+  ,：指定多个时间点
+     * * 1,5 * *  每月的1日和5日两天
+  /：指定时间间隔频率
+
+  -：指定一个时间段
+    0 0-6/1 *** 表示0点到6点之间每小时执行一次命令
+  每分钟一次0.1py文件
+    * * * * * python3 .../0.1.py
+  每小时的第3分钟和第15分钟执行
+    3.15 * * * * python3 .../0.1py
+  每周六，周日执行一个0.1py文件
+    0 0 * * 6,0 python3 ..../0.1py
+  每天18:00到23:00之间执行 0.1py文件
+    0 18-23/1 * * * python3 .../0.1.py
+设置开机启动
+  1.编写程序文件 .sh
+  2.把文件拷贝到 /etc/init.d/
+  3.修改文件权限
+    chmod 755 文件名
+      r:4
+      w:2
+      x:1
+  4.将程序文件放到启动项中
+    sudo update-rc.d ***.sh defalts 90
+      ## 90表示优先级，数字越大表示启动越晚
+  5.重启Linux操作系统
+    reboot  或者  init 6
+取消开机启动
+  sudo update-rc.d -f ***.sh remove
+while 循环
+  语法：
+    while [条件]
+    do
+      执行语句
+    done
+  打印一个1-10之间的整数
+  #!/bin/bash
+  x=1
+  while [$x -le 10]
+  do
+      echo $x
+      let x++
+  done
+until循环
+  特点
+    条件判断不成立时执行循环体，成立时循环结束
+  把176.136.10.10-15内不在线的IP输出来
+    #!/bin/bash
+    x=10
+    until [ $x -gt 15]
+    do
+        ping -c 2176.136.10.$x &> /dev/null
+    if [ $? - ne 0 ];then
+        echo "176.136.10.$x"
+    fi
+     let x++
+    done
+常用的Linxu命令补充
+  df -h
+    查看磁盘使用情况
+  chmod
+    修改文件/目录权限
+  chmod +x 文件名
+  chmod 644 文件名
+
+
+ day04
+ case分支结构
+ 　　根据变量值的不同执行不同的　操作
+   语法格式
+    case $变量名 in
+    模式１)
+       代码块
+       ;;
+    模式2)
+        代码块
+        ;;
+    ....
+    ...
+    esac
+　　例：
+    输入一个字符，判断这个字符是什么
+    #!/bin/bash
+    read -p "输入一个字符:" char
+    case $char in
+    [a-z]|[A-Z])
+        echo "字母"
+        ;;
+    [0-9])
+        echo "数字"
+        ;;
+    *)
+        echo "其他字符"
+        ;;
+    esac
+
+函数
+  语法格式
+    函数名(){
+        代码块
+    }
+    函数名 ##函数调用，不能加()
+
+  输出10个*
+    #!/bin/bash
+    star(){
+        echo"**********"
+    }
+    star #函数调用
+
+  在用户主目录下创建一个目录，如果存在则提示，否则则创建该目录并提示创建成功
+
+  #!bin/bash
+  is_directory(){
+    read -p "请输入创建的目录名称:" dir
+    if [ -d /home/tarena/$dir ];then   -d 判断文件是否存在
+        echo "该目录已存在"
+    else
+        mkdir /home/tarean/$dir
+        echo "目录 /hone/tarean/$dir 创建成功"
+    fi
+  }
+  is_directory
+
+命令行参数
+  ./t1.sh 1 2 3
+  $0:本身　./t1.sh
+  $1:第一个参数 1
+  $2:第一个参数 2
+  $3:第一个参数 3
+  $?:上一条命令执行结果 , 0成功，非0执行失败
+  计算两个数的和
+    vi t16.sh
+    #!/bin/bash
+    echo `expr $1 + $2`
+
+    ./t16.sh 3 5
+    结果为 8
+
+sed(文本处理工具 -Linux)
+  打印 p
+  sed -n 'p' a.txt #打印文件中所有内容
+  sed -n '1p' a.txt #打印文件第一行内容
+  sed -n '1,3p' a.txt #打印文件一到三行内容
+  sed -n '1p;3p' a.txt #打印文件第一第三行内容
+  删除 d
+  sed '1d' a.txt 输出除第一行的内容
+
+  sed -i '$d' a.txt 删除最后一行
+  sed -i '1,3d' a.txt 删除1-3行的内容
+  sed -i '1d;3d' a.txt 删除第1第3行的内容
+  替换(正行替换) c
+  sed -i 'c内容' a.txt
+  sed -i '条件c内容' a.txt
+  sed -i '1,3c将进酒' a.txt 将1-3行替换为 将进酒
+  sed -i -e '1c李白' -e '2c杜甫' a.txt 将第一行替换为李白，将第二行替换为杜甫
+  添加 a/i 
+  a:在当前处理行的下方添加新行
+  i:在当前处理行的上方添加新行
+  sed -i 'atiger' a.txt 在每一行的下方添加一行tiger
+  sed -i '1atiger' a.txt 在第一行的下方添加一行tiger
+  sed -i '1irabbit' a.txt 在第一行的上方添加一行rabbit
+  替换　s
+  sed -i 条件s/旧内容/新内容/选项
+  选项：g 表示全局替换
+       i 忽略字母大小写替换
+    sed -i '1,3s/6/A/g' a.txt 将1-3行的６替换为A
+    sed -i '/s/[0-9]/B/g' a.txt 文本中所有数字替换为B
+    sed -i 's/[0-9]\+/C/g' a.txt 　把文本中连续出现的数字替换为C
+    ##加g 表示全部替换,不加g只会替换指定行中的第一个
+
+
+day05
+概念
+  django项目(web应用)
+  web服务器
+    nginx
+    Apache
+      LNMP:Linnx,nginx,mysql,php/perl
+      LAMP:Linnx,nginx,mysql,php/perl
+  uwsgi
+    是web服务器和web框架之间的一种简单通用的接口
+单项目部署
+  确保django项目能够运行
+  安装nginx(网站服务)
+    安装nginx
+      sudo apt-get install nginx
+    启动nginx
+      sudo /etc/init.d/nginx start
+    验证
+      打开浏览器，输入:127.0.0.1 显示：Welcome to nginx!成功
+  安装uwsgi
+    安装
+      sudo pip3 install uwsgi
+    验证(用uwsgi启动django项目)
+      uwsgi --http:8008 --chdir 项目路径(home/tarena/friutday) --module friutday.wsgi
+        friutday.wsgi 指的是 friutday.wsgi.py
+  部署
+    配置uwsgi(配置文件)
+      在用户主目录下创建目录 uwsgi,用来存放uwsgi的项目的配置文件(每一个项目一个配置文件)
+      mkdir /home/tarena/uwsgi
+      cd /home/tarena/uwsgi
+      vi friutady_uwsgi.ini 并写入如下内容
+      [uwsgi]
+      socket=127.0.0.1:8002 #和nginx通信的端口
+      chdir=/home/tarena/friutday_1
+      wsgi-file=friutday/wsgi.py 
+      processes=4 #进程
+      threads=2 #线程
+      stats=127.0.0.1:8080
+
+    配置nginx()
+      更改配置文件
+        sudo -i
+        cd /etc/nginx/sites-enabled/
+        vi project_nginx.conf
+      拷贝uwsgi_params文件到项目目录
+        sudo cp /etc/nginx/uwsgi_params 
+        /home/tarena/friutday_1
+      重启nginx服务
+        sudo /etc/init.d/nginx restart
+    收集静态文件
+      在项目settings.py中添加如下内容：
+        STATIC_ROOT='h/home/tarena/friutday_1/static/'
+      收集静态文件
+        python3 manage.py collectstatic
+
+    用uwdgi启动django项目
+      uwsgi --ini friutday_uwsgi.ini1
+
+多项目部署
+  每个项目需要创建单独的uwsgi配置文件，选用不同的端口
+  nginx的配置文件只要1个就可以,添加server{...}
+设置开机自启动django项目
+  编写py文件
+  编写sh脚本文件(project.sh)
+  添加到开机自启动
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+

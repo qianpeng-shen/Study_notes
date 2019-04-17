@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+		function shang(){
+			var a="1045_5&10221_8&73569_6";
+			var b=a.split("&");
+			console.log("共购买了"+b.length+"类商品")
+			for (var i=0;i<b.length ;i++ )
+			{c=b[i].split("_");
+			console.log("编号"+c[0]);
+			console.log("数量"+c[1]);
+			}
+		}
+		function replacemsg(){
+			//将所有的垃圾连个字替换成**
+			var msg="收垃圾,倒垃圾,你个垃圾!!!";
+			//msg=msg.replace("垃圾","**")
+			//声明一个正则，全局匹配 垃圾
+			var reg=/垃圾/g;
+			//msg=msg.replace(reg,"**")
+			r=msg.match(reg);
+			//console.log(msg);
+			console.log("共出现"+r.length+"次垃圾");
+
+		}
+		</script>
+		<button onclick="shang()">购买</button>
+		<button onclick="replacemsg()">垃圾</button>
+ </body>
+</html>

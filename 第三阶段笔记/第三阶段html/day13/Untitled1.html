@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <script src="comment.js"></script>
+  <script>
+	function show(){
+		var elem=document.createElement("div");
+		elem.id='container';
+		elem.innerHTML="动态创建的div";
+		//将elem添加到main内部
+		//$("main").appendChild(elem);
+		//将elem添加到main内部pp元素之前
+		$("main").insertBefore(elem,$("pp"));
+
+	}
+	</script>
+	<button onclick="show()">元素</button>
+	<div id="main">
+	<p id="pp">这是p</p>
+	</div>
+ </body>
+</html>

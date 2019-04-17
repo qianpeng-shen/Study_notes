@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+	.color{
+	color:orange;
+	font-size:24px;
+	}
+	</style>
+ </head>
+ <body>
+  <div id="main">这是id为main的元素</div>
+	<button onclick="bindColor()">绑定color选择器</button>
+		<button  onclick='changcolor()'>颜色</button>
+	<script src="comment.js"></script>
+	<script>
+	function bindColor(){
+	var main=$("main")
+	main.className="color";
+	}
+	function changcolor(){
+	$("main").style.color="red";
+	$("main").style.fontSize="48px";
+	}
+	</script>
+ </body>
+</html>

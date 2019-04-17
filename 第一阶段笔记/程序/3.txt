@@ -1,0 +1,5 @@
+#! /bin/sh
+
+head -2 1.txt > n1.txt
+cat 2.txt >> n1.txt
+tail -2 1.txt >> n1.txt

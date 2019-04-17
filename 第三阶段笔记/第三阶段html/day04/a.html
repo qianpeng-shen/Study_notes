@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+	<style>
+	#main{background-color:#64a131;
+	border:none;
+	outline:none;
+	border-radius:5PX}
+	#ma{color:grey;}
+	#mk{color:grey;}
+	#m{
+	width:18px;
+	height:18px;
+	}
+	#gh,#gk{
+	border:1px solid #ccc;
+	padding:15px;
+	box-sizing:border-box;}
+	#gh:focus,#gk:focus{
+	border-color:#64a131;
+	box-shadow:0px 0px 10px 0px #64a131;
+	}
+	</style>
+ </head>
+ <body>
+		<form action="#" method="post">
+			<table>
+				<tr>
+					<td>手机号</td>
+					<td><input type="text" name="uname" style="width:300px;height:40px;"id="gh"></td>
+				</tr>
+				<tr>
+					<td align="right">密码</td>
+					<td><input id="gk" type="password" name="uname" placeholder="请输入6-20位号码字符" maxlength="20" style="width:300px;height:40px;"></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="checkbox" name="len" value="0" id="m"><span id="mk">记住密码</span> <a href="#" id="ma">忘记密码? </a>&nbsp;&nbsp;<a href="#" id="ma">快捷登录</a></td>
+				</tr>
+				<tr>
+					<td></td>
+					<td><input type="submit" name="denglu" style="width:142px;height:40;" id="main" value="登录">&nbsp;<a href="#">注册会员</a></td>
+				</tr>
+			</table>
+		</form>
+ </body>
+</html>

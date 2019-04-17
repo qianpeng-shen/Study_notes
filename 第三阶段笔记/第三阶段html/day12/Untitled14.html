@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  用户名: <input type="text" id="a"> <button onclick="show()">验证</button>
+	<div id="b">div</div>
+	<script src="comment.js"></script>
+	<script>
+	function show(){
+		var a=$("a").value;
+		if (a.length<=18&&a.length>=6)
+		{$("b").innerHTML="通过";
+		$("b").style.color="red";
+		}else{$("b").innerHTML="不通过";
+		$("b").style.color="blue";}
+	}
+	</script>
+
+ </body>
+</html>

@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			var year=prompt("请输入年");
+			var mth=prompt("请输入月");
+			var day=Number(prompt("请输入日"));
+			var isrun=year%4==0 && year%100!=0 || year%400==0;
+			var totaldays=0;
+			if (mth==1)
+			{totaldays=day;
+			}else if (mth==2)
+			{totaldays=31+day
+			}else if (mth==3)
+			{totaldays=31+28+day
+			}else if (mth==4)
+			{totaldays=31+28+31+day
+			}else if (mth==5)
+			{totaldays=31+28+31+30+day
+			}
+			//判断是否为闰年
+			if (mth>2 &&isrun)
+			{totaldays+=1;
+			}
+			console.log(year+"年"+mth+"月"+day+"日"+totaldays+"天")
+	
+		</script>
+ </body>
+</html>

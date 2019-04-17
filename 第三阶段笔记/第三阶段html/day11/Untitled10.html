@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+		function validatenum(){
+		//声明正则表达式，验证6位数字
+		//var reg=/^\d{6}$/;
+		var reg = new RegExp("^\\d{6}$");
+		var msg=prompt("输入六位邮政编码");
+		if (reg.test(msg))
+		{alert("格式正确");
+		}else{alert("格式错误");}
+		}
+		</script>
+		<button onclick="validatenum()">邮编</button>
+ </body>
+</html>

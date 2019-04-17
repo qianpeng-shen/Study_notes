@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <div id="d1">
+	<h1>这是d1中h1元素</h1>
+	</div>
+	<button onclick="showInfo()">内容</button>
+	<script>
+		function showInfo(){
+		//获取d1元素
+			var d1=document.getElementById("d1");
+		//获取innerHTML属性值，并打印在控制台上
+			console.log(d1.innerHTML);
+		//为innerHTML赋值
+		d1.innerHTML="<h2>内容改为h2标记</h2>"
+		
+		}
+	</script>
+ </body>
+</html>

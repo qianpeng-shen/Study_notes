@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function isRun(year){
+			return year%4==0&&year%100!=0||year%4==0;
+		}
+		function caldate(){
+		var year =prompt("年")
+		var month = prompt("月")
+		var day=Number(prompt("日"))
+		var totaldays=0
+		for (var i=1900;i<year-1 ;i++ )
+		{totaldays+=365;
+			if(isRun(i)){totaldays+=1;}
+		}
+		for (var i=1;i<month;i++ )
+		{switch (i)
+		{
+		case 1:
+		case 3:
+		case 5:
+		case 7:
+		case 8:
+		case 10:
+		totaldays+=31;
+		break;
+		case 4:
+		case 6:
+		case 9:
+		case 11:
+		totaldays+=30;
+		break;
+		case 2:
+		totaldays+=28;
+		if (isRun(year))
+		{totaldays+=1;
+		break;}
+		}
+		}
+		totaldays+=day;
+		var date=totaldays%7;
+		var show=""
+		switch (date)
+		{
+		case 0:
+		show="日";
+		break;
+		case 1:
+		show="一";
+		break;
+		case 2:
+		show="二";
+		break;
+		case 3:
+		show="三";
+		break;
+		case 4:
+		show="四";
+		break;
+		case 5:
+		show ="五";
+		break;
+		case 6:
+		show="六";
+		break;
+		
+		}
+		console.log(year+"年"+month+"月"+day+"天是星期"+show);}
+
+	</script>
+	<button onclick="caldate()">日期计算器</button>
+ </body>
+</html>

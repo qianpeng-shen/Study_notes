@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <input type="checkbox" name="hobby" value="1">吃
+	<input type="checkbox" name="hobby" value="2">喝
+	<input type="checkbox" name="hobby" value="3">玩
+	<input type="checkbox" name="hobby" value="4">乐
+	<button onclick="getValue()">获取值</button>
+	<script src="comment.js"></script>
+	<script>
+		function getValue(){
+		//获取所有name为hobby的元素
+		var arr=document.getElementsByName("hobby");
+		for (var i=0;i<arr.length ;i++ )
+		{if (arr[i].checked)
+		{console.log(arr[i].value);
+		}}}
+	</script>
+ </body>
+</html>

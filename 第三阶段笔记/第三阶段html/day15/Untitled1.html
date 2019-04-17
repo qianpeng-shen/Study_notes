@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+		#test{
+		width:200px;
+		height:400px;
+		background:red;
+		border:2px solid #000;
+		}
+	</style>
+ </head>
+ <body>
+ <button id="btnHide">基本隐藏</button>
+ <button id="btnShow">基本显示</button>
+ <button id="show">滑式显示</button>
+ <button id="show1">滑式隐藏</button>
+ <button id="show2">淡出淡入式显示</button>
+ <button id="show3">淡入淡出式隐藏</button>
+  <div id="test">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore consequatur beatae quas sit illum fugit voluptates! Dignissimos sint natus fugit adipisci doloremque laudantium enim sit ut delectus quibusdam soluta eum.</div>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		$(function(){
+			//为btnHide绑定事件
+			$("#btnHide").click(function(){
+				$("#test").hide(5000);
+			})
+			//为btnShow绑定事件
+			$("#btnShow").click(function(){
+				$("#test").show(5000);
+			})
+			$("#show").click(function(){
+				$("#test").slideDown(5000);
+			});
+			$("#show1").click(function(){
+				$("#test").slideUp(5000);
+			})
+			$("#show2").click(function(){
+				$("#test").fadeIn(5000);
+			})
+			$("#show3").click(function(){
+				$("#test").fadeOut(5000);
+			})
+
+		})
+	</script>
+ </body>
+</html>

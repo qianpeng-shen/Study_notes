@@ -1,0 +1,5 @@
+
+        if i=="name" or na:
+            print("kkkk")
+    print("nnnn")
+fun()

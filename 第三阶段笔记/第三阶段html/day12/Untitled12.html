@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<a href="http://www.baidu.com" id="a">百度</a>
+		<button onclick="show()">修改</button>
+		<script src="comment.js"></script>
+		<script>
+			function show(){
+			$("b").setAttribute('href','http://www.tmooc.cn');
+			$("b").innerHTML="TMOOC";
+							var a=$("b");
+				//修改a的href
+			//	a.herf="http://www.baidu.com"
+				//修改a 文本
+				//a.innerHTTML="TMOOC"
+			}
+		</script>
+ </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+		function test()
+		{ 
+		var str ="Hello World";
+		var s=str.charAt(3);
+		console.log("下标为3的字符为"+s);
+		var r=str.charCodeAt(3);
+		r=r.toString(16);//转为十六进制
+		var show="\u006c";//转码时，需要是四位，不够补零
+		console.log("下标为3的码的Unicode码:"+r);
+		console.log(show)
+		}
+		</script>
+		<button onclick="test()">获取</button>
+ </body>
+</html>

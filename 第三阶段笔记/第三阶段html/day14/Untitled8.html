@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+   	<p>
+		<input type="text" id="gname" placeholder="商品名称">
+		<input type="text" id="gprice" placeholder="商品价格">
+		<input type="text" id="gcount" placeholder="购买数量">
+		<button onclick="show()">增加</button>
+		</p>
+	<table border="1" width="600px;">
+	<thead>
+		<tr>
+		<td>商品名称</td>
+		<td>商品价格</td>
+		<td>购买数量</td>
+		<td>操作</td>
+		</tr>
+		</thead>
+		<tbody id="body"></tbody>
+		<script src="jquery-1.11.3.js"></script>
+		<script>
+		function show(){
+			var gname=$("#gname").val();
+			var gprice=$("#gprice").val();
+			var gcount=$("#gcount").val();
+
+			var $tdName=$("<td>"+gname+"</td>");
+			var $tdPrice=$("<td>"+gprice+"</td>");
+
+			var $tdCount=$("<td>"+gcount+"</td>");
+
+			var $tdOper=$("<td></td>");
+
+			var $btnUpdate=$("<button>修改</button>");
+			var $btnDelete=$("<button>删除</button>");
+
+
+			//为 btnDelete 绑定事件
+			$btnDelete.click(function(){
+				//通过 this 找到 tr
+				if (confirm("确认删除吗?"))
+				{$(this).parent().parent().remove();}
+			});
+
+			//为btnUpdate绑定事件
+			$btnUpdate.click(function(){
+				//获取购买数量的td
+				var $tdCount=$(this).parent().prev();
+				if ($(this).html()=="修改")
+				{$(this).html("确定")
+				//获取数量的文本
+				var count=$tdCount.html();
+				//清空购买数量td内的文本内容
+				$tdCount.empty();
+				//创建-按钮，追加到$tdCount中
+				var $btnMinus=$("<button>-</button>")
+				$btnMinus.click(function(){
+					//通过this找到文本框(下一个兄弟元素)
+					var iCount=$(this).next().val();
+					if (iCount<=1)
+					{iCount=1;
+					}else{--iCount;}
+					$(this).next().val(iCount);
+				});
+				$tdCount.append($btnMinus);
+				//创建文本框，追加到$tdCount中
+				var $txtCount=$("<input>");
+				$txtCount.val(count);
+				$tdCount.append($txtCount);
+				//创建+按钮，追加到$tdCount中
+				var $btnAdd=$("<button>+</button>")
+				
+				$btnAdd.click(function(){
+					//通过this找到文本框(下一个兄弟元素)
+					var iCount=$(this).prev().val();
+					if (iCount<1)
+					{iCount=1
+					}else{++iCount;}
+					$(this).prev().val(iCount);
+				});
+				$tdCount.append($btnAdd);
+
+				}else{$(this).html("修改");
+				//通过$tdCount查找文本框
+				var iCount=$tdCount.children("input").val();
+				$tdCount.html(iCount);
+				}
+			});
+
+
+				//将两个按钮追加到tdOper中
+				$tdOper.append($btnUpdate);
+				$tdOper.append($btnDelete);
+				//创建tr并将td追加到tr中
+				var $tr=$("<tr></tr>");
+				$tr.append($tdName);
+				$tr.append($tdPrice);
+
+				$tr.append($tdCount);
+				$tr.append($tdOper);
+
+				$("#body").append($tr);}
+
+		</script>
+ </body>
+</html>

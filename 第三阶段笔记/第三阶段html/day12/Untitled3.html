@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+	var timer;
+	function showAlert(){
+		timer=setInterval(function(){
+			alert("等一会，我要吃饭")
+		},5000);
+	}
+	function clearAert(){
+	clearInterval(timer);}
+	showAlert();
+	</script>
+	<button onclick="clearAert()">摊开</button>
+ </body>
+</html>

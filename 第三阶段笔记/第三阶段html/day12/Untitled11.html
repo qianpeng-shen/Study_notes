@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+	.test{
+	color:red;
+	font-weight:bold;
+	font-size:24px;
+	}
+	</style>
+ </head>
+ <body>
+  <div id="container">
+		这是id为container的div元素
+	</div>
+	<button onclick="setAttr()">增加属性</button>
+	<button onclick="getAttr()">查看属性</button>
+	<button onclick="removeAttr()">移除属性</button>
+	<script src="comment.js"></script>
+	<script>
+		function setAttr(){
+		//为container元素动态 绑定class属性，值为test
+		$("container").setAttribute("class","test");}
+		function getAttr(){
+		console.log($('container').getAttribute("class"));
+		}
+		function removeAttr(){
+		console.log($('container').removeAttr("class"));
+		}
+
+		
+	</script>
+ </body>
+</html>

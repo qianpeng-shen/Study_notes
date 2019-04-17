@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function gh(len){
+			var code=['0','1','2','3','4','5','6','7','8','9','q','w','e','r','t','y','u','i','o','p','a','s','d','f','g','h','j','k','l','z','x','c','v','b','n','m','Q','W','E','R','T','Y','U','I','O','P','A','S','D','F','G','H','J','K','L','Z','X','C','V','B','N','M'];
+		var vcode="";
+		for (var i=0;i<len ;i++ )
+		{var rindex=parseInt(Math.random()*code.length);
+		vcode+=code[rindex];}
+		return vcode;}
+		function show (){
+		var vcode=gh(4)
+		var input=prompt("请输入以下验证码"+vcode);
+		if (input==vcode)/*input.toUpperCase()==vcode.toUpperCase()不区分大小写*/
+		{alert("验证通过");
+		}else{alert("验证失败");}	}
+	</script>
+	<button onclick="show()">验证码</button>
+ </body>
+</html>

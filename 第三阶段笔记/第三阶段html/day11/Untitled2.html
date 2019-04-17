@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			function show (){
+				var books=["红楼梦","水浒传","西游记","三国演义"];
+				var input=prompt("输入书名");
+				var index=-1;
+				for (var i=0;i<books.length ;i++ )
+				{if (input==books[i])
+				{index=i;break;}}
+				if(index==-1)
+				{alert("改书不存在");
+				}else{
+					for (var i=index;i<books.length-1 ;i++ )
+					{books[i]=books[i+1];
+					}
+				}books.pop();
+				console.log(books);
+
+
+			}
+		</script>
+		<button onclick="show()">查书</button>
+ </body>
+</html>

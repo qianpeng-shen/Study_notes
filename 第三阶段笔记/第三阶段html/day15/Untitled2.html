@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<p>
+			<input type="text" id="a" placeholder="商品名称">
+			<input type="text" id="b" placeholder="商品价格">
+			<input type="text" id="c" placeholder="商品数量">
+			<button onclick="show()">增加</button>
+		</p>
+		<table border="1" width="600px">
+		<thead>
+		<td>商品名称</td>
+		<td>商品价格</td>
+		<td>商品数量</td>
+		<td>操作</td>
+		</thead>
+		<tbody id="doy">
+		</tbody>
+		</table>
+		<script src="jquery-1.11.3.js"></script>
+		<script>
+			function show(){
+				var $a=$("#a").val();
+				var $b=$("#b").val();
+				var $c=$("#c").val();
+				var $d=$("<td></td>");
+				$d.html($a);
+				var $e=$("<td></td>");
+				$e.html($b);
+				var $f=$("<td></td>");
+				$f.html($c);
+				var $j=$("<td></td>");
+				var $adw=$("<button>修改</button>");
+				var $acw=$("<button>删除</button>");
+				$acw.click(function(){
+					$(this).parent().parent().remove();
+				})
+				
+				$adw.click(function(){
+					$count=$(this).parent().prev();
+					if ($(this).html()=="修改")
+					{$(this).html("确认");
+					var conut=$count.html();
+					$count.empty();
+					var $minv=$("<button>-</button>");
+					$minv.click(function(){
+						var cou=$(this).next().val();
+						if (cou<=1)
+						{cou=1;
+						}else{--cou}
+						$(this).next().val(cou);
+					})
+					$count.append($minv);
+					var $minc=$("<input>");
+					$minc.val(conut);
+					$count.append($minc);
+					var $minx=$("<button>+</button>");
+					$minx.click(function(){
+					var cwu=$(this).prev().val();
+						if (cwu<1)
+						{cwu=1;
+						}else{++cwu;}
+						$(this).prev().val(cwu);
+					})
+					$count.append($minx);
+					}else{$(this).html("修改");
+					var icount=$count.children("input").val();
+					$count.html(icount);}
+				});
+
+				$j.append($adw);
+				$j.append($acw);
+				var $k=$("<tr></tr>");
+				$k.append($d);
+				$k.append($e);
+				$k.append($f);
+				$k.append($j);
+				$("#doy").append($k);
+			}
+		</script>
+ </body>
+</html>

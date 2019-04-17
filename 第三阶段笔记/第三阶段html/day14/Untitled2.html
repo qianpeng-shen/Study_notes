@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <div id="main">
+		这是id为main的div
+	</div>
+	<button onclick="btnClick()">获取元素</button>
+	<button onclick="domToJQ()">DOM转为JQuery</button>
+	<button onclick="JQTodom()">JQuery转为DOM</button>
+
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+
+		function btnClick(){
+		//通过jquery选择器获取id为main的元素
+		/*var m=$("#main");
+		console.log(m); */
+		//console.log($("#main").html());
+		//$("main").html("动态设置的html值");
+		//等同于document.getElementById("main"),innerHTML="动态设置的html值";
+		}
+		function domToJQ(){
+		//通过dom操作，得到main的元素
+		var main=document.getElementById("main")
+		//转为jq对象
+		var $main=$(main);
+		$main.html("转为jq对象成功")
+		}
+		function JQTodom(){
+		//使用jQuery获取main元素
+		var $main=$("#main");
+		//转为dom元素
+		var m=$main[0];
+		//var m=$main.get(0);
+		m.innerHTML="转为dom对象成功";
+		}
+	</script>
+ </body>
+</html>

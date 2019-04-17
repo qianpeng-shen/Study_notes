@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<style>
+	button{
+		width:40px;
+		height:40px;
+		border-radius:3px;
+		font-size:24px;
+		border:none;
+		vertical-align:middle;
+	}
+	input{
+	width:80px;
+	height:40PX;
+	border:1px solid #000;
+	box-sizing:border-box;
+	text-align:center;
+	font-size:24px;
+	vertical-align:middle;
+	}
+	</style>
+ </head>
+ <body>
+		<button onclick="btnOperation(this)">-</button>
+		<input type="text" id="txtNum" value="1">
+		<button onclick="btnOperation(this)">+</button>
+		<button onclick="btnOperation(this)">-</button>
+		<input type="text" id="txtNum" value="1">
+		<button onclick="btnOperation(this)">+</button>
+		<script src="comment.js"></script>
+		<script>
+		function btnOperation(btn){
+			if (btn.innerText=="+")
+			{//获取文本框
+				var txtNum=btn.previousElementSibling;
+				//将值加一再赋给文本框
+				txtNum.value=++txtNum.value;
+				
+			}else{
+				var txtNum=btn.nextElementSibling;
+				if (txtNum.value>1)
+				{--txtNum.value;
+				}
+			
+			}
+		}
+		function btnOper(op){
+		//获取文本框的值
+		var value=Number($("txtNum").value);
+		//根据op的运算符决定操作
+		if (op == "+")
+		{value ++;
+		}else{
+			if (value>1)
+			{value --;
+			}
+		}
+		//将值赋值给文本框
+		$("txtNum").value=value;
+	
+		}
+			function btnadd(){
+			//获取 txtNum的值
+			var value=Number($("txtNum").value);
+			//将值加一
+			value+=1;
+			//将值赋值给txtNum
+			$("txtNum").value=value;
+			}
+			function btnminus(){
+			//获取txtNum的值
+			var value=Number($("txtNum").value);
+			//判断如果值大于1，则将值减一
+			if (value>1)
+			{value-=1;
+			}
+			//再将值赋值给txtNum
+			$("txtNum").value=value;
+
+			}
+		</script>
+
+ </body>
+</html>

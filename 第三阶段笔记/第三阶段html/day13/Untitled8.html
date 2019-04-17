@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <p>
+	用户名称：<input type="text" id="uname">
+	</p>
+	<script src="comment.js"></script>
+	<script>
+	window.onload=function(){
+	/*$("uname").onkeypress=function(event){
+		//console.log(event)
+		//return false;
+		if (event.which>=48&&event.which<=57)
+		{return true;
+		}else{return false;}}*/
+		$("uname").onkeydown=function(event){
+		console.log(event);
+		}
+	}
+	</script>
+ </body>
+</html>

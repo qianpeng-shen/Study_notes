@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function show(){
+		var a=[1,6,4,9]
+		for (var i=1;i<a.length ;i++ )
+		{ var b=a[0];
+		if (a[i]>b)
+		{b=a[i]}
+		}console.log("最大值为"+b);
+		}
+		function arrsort(){
+			var arr=[78,56,45];
+			console.log("原始数据为"+arr)
+			//比较第一个和第二个数字，如果大，则交换位置
+			if (arr[0]>arr[1])
+			{arr[0]^=arr[1];
+			arr[1]^=arr[0];
+			arr[0]^=arr[1];}
+			console.log("第一次为"+arr)
+			//比较第2个和第3个数字，如果大，则交换位置
+			if (arr[1]>arr[2])
+			{arr[1]^=arr[2];
+			arr[2]^=arr[1];
+			arr[1]^=arr[2];}
+			console.log("第2次为"+arr)
+			//比较第一个和第二个数字，如果大，则交换位置
+			if (arr[0]>arr[1])
+			{arr[0]^=arr[1];
+			arr[1]^=arr[0];
+			arr[0]^=arr[1];}	
+			console.log("第3次为"+arr)
+		}
+		function f(){
+		var gh=[1,3,6,7];
+		var input=Number(prompt("输入一个数"));
+		var index=-1;
+		for (var i=0;i<gh.length ;i++ )
+		{if (gh[i]==input)
+		{index=i; break;}}
+		if (index==-1)
+		{console.log("没有该数据")
+		}else{console.log(input+"的下标为"+index);}
+		}
+	</script>
+		<button onclick="show()">最大</button>
+		<button onclick="arrsort()">排序</button>
+		<button onclick="f()">下标</button>
+ </body>
+</html>

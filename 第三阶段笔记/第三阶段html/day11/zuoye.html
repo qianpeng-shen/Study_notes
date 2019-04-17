@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			function chang(value){
+			if (value<10)
+			{value="0"+value;
+			return value;
+			}
+			}
+			function showtime(){
+			var now = new Date()
+			var year= now.getFullYear();
+			var month=chang(now.getMonth()+1);
+			var date=chang(now.getDate());
+			var hour=chang(now.getHours());
+			var minute=chang(now.getMinutes());
+			var second=chang(now.getSeconds());
+			var day=now.getDay();
+			switch (day)
+			{
+			case 0:
+			day="日"
+			break;
+			case 1:
+			day="一";
+			break;
+			case 2:
+			day="二";
+			break;
+			case 3:
+			day="三";
+			break;
+			case 4:
+			day="四";
+			case 5:
+			day="五";
+			case 6:
+			day="六";
+			break;	
+			}/*数组方式  var days=["日","一"];day=days[day];*/
+			var msg=year+"年"+month+"月"+date+"日"+hour+"时"+minute+"分"+second+"秒"+"星期"+day;
+			console.log(msg);
+			}
+		</script>
+		<button onclick="showtime()">时间</button>
+ </body>
+</html>

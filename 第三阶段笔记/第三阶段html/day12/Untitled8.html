@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<input type="text" id="msg">
+		<button onclick="btnshow()">显示</button>
+		<div id="msg-show"></div>
+		<script src="./comment.js"></script>
+		<script>
+			function btnshow(){
+			//获取msg的value
+			//var v=document.getElementById("msg").value;
+			//value 两端添加<h1>再赋值给msg-show
+			//v="<h1>"+v+"</h1>";
+			//document.getElementById("msg-show").innerHTML=v;
+
+			$('msg-show').innerHTML="<h1>"+$('msg').value+"</h1>";
+			console.log($('msg-show').nodeName);
+			}
+		</script>
+ </body>
+</html>

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			var year=prompt("请输入年");
+			var mth=prompt("请输入月");
+			var day=Number(prompt("请输入日"));
+			var totaldays=0;
+			var i=1;
+			while (i<mth)
+			{switch (i)
+			{
+			case 1:
+			case 3:
+			case 5:
+			case 7:
+			case 8:
+			case 10:
+			  totaldays+=31;
+				break;
+			case 4:
+			case 6:
+			case 9:
+			case 11:
+			  totaldays+=30;
+				break;
+			case 2:
+			  totaldays+=28;
+				if(year%4==0 && year%100!=0 || year%400==0);
+				  titaldays+=1;
+				break;	
+			}i++;
+			}
+			totaldays+=day;
+			console.log(year+"年"+mth+"月"+day+"日"+totaldays+"天");
+	
+		</script>
+ </body>
+</html>

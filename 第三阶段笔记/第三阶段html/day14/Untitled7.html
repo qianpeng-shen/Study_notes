@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+	<script src="jquery-1.11.3.js"></script>
+ </head>
+ <body>
+		<div id="container">container元素</div>
+		<button onclick="btnnew()">创建新元素</button>
+		<script>
+			function btnnew(){
+			//创建一个img
+			var $img=$("<img>");
+			//指定一个属性值
+			$img.attr("src","a.jpg");
+			
+			//将其插入到网页中
+			//$("#container").append($img);
+			//$("#container").prepend($img);
+			$("#container").after($img);
+
+			
+			
+			}
+		</script>
+ </body>
+</html>

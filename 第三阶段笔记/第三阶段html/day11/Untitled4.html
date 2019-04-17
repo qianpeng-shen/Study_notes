@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			function validatename()
+			{
+			var uname=prompt("请输入用户名(6-18位)")
+			if (uname.length>=6&&uname.length<=18)
+			{alert("通过验证")
+			}else{alert("用户名不符合规范")}
+			}
+			</script>
+		<button onclick="validatename()">用户名</button>
+ </body>
+</html>

@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			function show(){
+				var input=Number(prompt("请输入数字"));
+				var a=[];
+				while (input!=0)
+				{ab=input%2;
+				 a[a.length]=ab;
+				 input=parseInt(input/2);
+				}a.reverse();
+				console.log(a.join(''));
+			}
+		</script>
+		<button onclick="show()">函数</button>
+ </body>
+</html>

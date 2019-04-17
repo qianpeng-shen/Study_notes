@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+ </head>
+ <body>
+	<script>
+		function show(){
+			var books=["老人与海","钢铁是怎磨练成","海底两万里"];
+			var bname=prompt("请输入书名");
+			var len=books.push(bname);
+			console.log("共有"+len+"本书");
+			console.log("所有书籍"+books);
+			var rbook=books.pop();
+			console.log("移除的书是"+rbook);
+			console.log("现有书籍"+books);
+		}
+	</script> 
+	<button onclick="show()">书名</button>
+ </body>
+</html>

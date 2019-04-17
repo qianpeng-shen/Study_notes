@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>韩寒签约的出版社：</h1>
+    {% for au in publishers %}
+        <h3>{{au.name}}</h3>
+    {% endfor %}
+    <h1>北京大学出版社所有作者：</h1>
+    {% for bu in authors %}
+        <h3>{{bu.name}}</h3>
+    {% endfor %}
+</body>
+</html>

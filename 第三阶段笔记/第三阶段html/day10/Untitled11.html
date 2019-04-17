@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		function sortAsc(a,b){return a-b;}
+		function test(){
+		var arr = [34,567,578,45,43,1122];
+		console.log("排序前"+arr);
+		//arr.sort(sortAsc);
+		arr.sort(function(a,b){ return a-b;});
+		console.log("排序后"+arr);
+		}
+	</script>
+	<button onclick="test()">排序</button>
+ </body>
+</html>

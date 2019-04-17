@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			var input=window.prompt("输请入");
+			//判断是否为数字
+			var  isNum= input >= 0 && input <=9;
+			document.write(input+"是数字吗"+isNum);
+			//判断是否为中文 \u4e00 ~ \u9fa5
+			var isCHN=input>="\u4e00" && input<="\u9fa5";
+			document.write(input+"是中文吗"+isCHN);
+			//判断是否为英文
+			//判断是否为大写英文
+			var iscaps=input>="A" && input <="Z";
+			//判断是否为小写英文
+			var iscsml=input>="a" && input <="z";
+			var iseng=iscaps || iscsml;
+			document.write(input+"是英文吗"+iseng);
+
+
+
+		</script>
+ </body>
+</html>

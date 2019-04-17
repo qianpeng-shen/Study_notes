@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<p>
+		<input type="text" id="gname" placeholder="商品名称">
+		<input type="text" id="gprice" placeholder="商品价格">
+		<input type="text" id="gcount" placeholder="购买数量">
+		<button onclick="show()">增加</button>
+		</p>
+	<table border="1" width="600px;">
+	<thead>
+		<tr>
+		<td>商品名称</td>
+		<td>商品价格</td>
+		<td>购买数量</td>
+		<td>操作</td>
+		</tr>
+		</thead>
+		<tbody id="body"></tbody>
+		<script src="comment.js"></script>
+		<script>
+			function show(){
+				//获取文本框的值
+				var gname=$("gname").value;
+				var gprice=$("gprice").value;
+				var gcount=$("gcount").value;
+				//先创建td并将值ent.createElement("td");
+				var tdName=document.createElement("td");
+				tdName.innerHTML=gname;
+				var tdPrice=document.createElement("td");
+				tdPrice.innerHTML=gprice;
+				var tdCount=document.createElement("td");
+				tdCount.innerHTML=gcount;
+
+				var tdOper=document.createElement('td');
+
+				btnUpdate=document.createElement("button");
+				btnDelete=document.createElement("button");
+
+				btnUpdate.innerHTML="修改";
+				btnDelete.innerHTML="删除";
+				//将两个按钮追加到tdOper中
+				tdOper.appendChild(btnUpdate);
+				tdOper.appendChild(btnDelete);
+				//创建tr并将td追加到tr中
+				var tr=document.createElement("tr");
+				tr.appendChild(tdName);
+				tr.appendChild(tdPrice);
+				tr.appendChild(tdCount);
+				tr.appendChild(tdOper);
+
+
+				//追加到tbody中
+				$("body").appendChild('tr');
+			}
+		</script>
+	</table>
+ </body>
+</html>

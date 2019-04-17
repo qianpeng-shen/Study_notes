@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <script>
+		var input=window.prompt("输请入数字");
+		var r=(input%4==0 && input%100 !=0);
+		var a=input%400==0;
+		var t=(r || a);
+		document.write(input+"是否为闰年"+t);
+	</script>
+ </body>
+</html>

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<div id="d1">
+		<h3 id="title">悯农</h3>
+		<p>锄禾日当午</p>
+		<p id="aa">汗滴禾下土</p>
+		<p>谁知盘中餐</p>
+		<p>粒粒皆辛苦</p>
+
+		</div>
+		<button onclick="getParent()">获取titled的父元素</button>
+			<button onclick="getD1Child()">获取d1的子元素</button>
+			<button onclick="getD1Childdren()">获取d1的子元素</button>
+			<button onclick="getTitleS()">获取title的兄弟节点</button>
+		<script src="comment.js"></script>
+		<script>
+		function getParent(){
+			var title=$("title");
+			//console.log(title);
+			var div=title.parentNode;
+			console.log(div);
+			div.style.color="orange";
+		
+		}
+		function getD1Child(){
+		var d1=$("d1");
+		var arr=d1.childNodes;
+		for (var i=0;i<arr.length ;i++ )
+		{if (arr[i].nodeType==1)
+		{console.log(arr[i]);
+		}
+		}
+
+		}
+		function getD1Childdren(){
+			var arr=$("d1").children;
+			console.log(arr)
+		}
+		function getTitleS(){
+		var title=$("title");
+		//获取title的下一个兄弟节点
+		var n1=title.nextSibling;
+		console.log(n1);
+		//获取title的下一个元素兄弟节点
+		var n2=title.nextElementSbling;
+		console.log(n2);
+		//获取aa的上一个兄弟节点
+		var p1=$("aa");
+		pre1=p1.previousSibling;
+		console.log(pre1);
+		//获取aa的上一个元素的兄弟节点
+		p2=$("aa");
+		pre2=p2.previousElementSibling
+		console.log(pre2);
+		}
+		</script>
+ </body>
+</html>

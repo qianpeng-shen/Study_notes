@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+ <button id="btnclick">事件绑定</button>
+		<script src="jquery-1.11.3.js"></script>
+		<script>
+			//$(function(){
+			//window.alert("加载后执行的");
+			//})
+			//$(document).ready(function(){
+			//alert("小小")
+			//})
+			//为btnclick绑定click事件
+			$("#btnclick").click(function(){
+				alert("这是动态绑定的事件");
+				//this表示的是激发当前操作的DOM对象，先转换，在使用
+				console.log(this);
+				console.log($(this));
+			})
+		</script>
+ </body>
+</html>

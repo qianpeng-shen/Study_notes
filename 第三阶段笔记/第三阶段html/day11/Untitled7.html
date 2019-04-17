@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<script>
+			function show(){
+			var input=prompt("请输入邮箱");
+			var b=input.indexOf("@");
+			var c=input.lastIndexOf(".");
+			if (c>b&&b!="-1")
+			{alert("格式正确");
+			}else{alert("格式错误");}}
+			function ag(){
+			var emil=prompt("输入邮箱");
+			var a=emil.substring(0,emil.indexOf("@"))
+			alert(a);
+			var b=emil.substring(emil.indexOf("@")+1,emil.leght);
+			alert(b);}
+			function shen(){
+				var phone=prompt("输入身份证");
+				var year=phone.substring(6,10);
+				var month=phone.substring(10,12);
+				var day=phone.substring(12,14);
+				alert(year+"年"+month+"月"+day+"日")
+				130435199411052115
+			}
+
+
+
+
+		</script>
+		<button onclick="show()">邮箱</button>
+		<button onclick="ag()">信息</button>
+		<button onclick="shen()">身份证</button>
+ </body>
+</html>

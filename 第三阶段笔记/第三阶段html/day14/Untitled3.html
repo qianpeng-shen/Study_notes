@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+		<p>床前明月光</p>
+		<p>疑是地上霜</p>
+		<p>举头望明月</p>
+		<p>低头思故乡</p>
+		<p>白日依山尽</p>
+		<p>黄河入海流</p>
+		<p>欲穷千里目</p>
+		<p>更上一层楼</p>
+	<button onclick="show1()">变色</button>
+	<button onclick="show2()">隐藏</button>
+	<script src="jquery-1.11.3.js"></script>
+	<script>
+		function show1(){
+			$("p:odd").css("background","red");
+			$("p:even").css("background","yellow");
+			$("p:first").css("color","blue");
+
+		}
+		function show2(){
+		$("p:gt(3)").css("display","none");
+		}
+	</script>
+ </body>
+</html>
