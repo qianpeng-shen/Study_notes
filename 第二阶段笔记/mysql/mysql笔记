@@ -49,7 +49,7 @@ MySQL概述：
 MySQL的安装
 　　Ubuntu安装MySQL服务　　RedHat(红帽)，CentOS,Ubuntu
     安装服务端
-      sudo apt_get insetall mysq1-server 或　pip
+      sudo apt-get insetall mysql-server 或　pip
     安装客户端
       sudo apt-get insta11 mysq1-c1ient
   Windows安装MySQL服务
